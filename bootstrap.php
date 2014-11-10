@@ -20,11 +20,11 @@ $router->add("/pages/", $indexControllerData);
 ////////////////////////////
 //  CLASSES
 
-$loaderClassArray[$blockNamespace.'\Controller\IndexControllerCore']	= ABS_ROOT.'__core__/'.$blockVendor.'/'.$blockFolder.'/controllers/IndexControllerCore.php';
-$loaderClassArray[$blockNamespace.'\Controller\IndexController']		= ABS_ROOT.'project/' .$blockVendor.'/'.$blockFolder.'/controllers/IndexController.php';
+$loaderClassArray[$blockNamespace.'\Controller\IndexControllerCore']	= ABS_ROOT.CORE_FOLDER.'/'.$blockVendor.'/'.$blockFolder.'/controllers/IndexControllerCore.php';
+$loaderClassArray[$blockNamespace.'\Controller\IndexController']		= ABS_ROOT.PROJ_FOLDER.'/'.$blockVendor.'/'.$blockFolder.'/controllers/IndexController.php';
 
-$loaderClassArray[$blockNamespace.'\Object\FooCore']					= ABS_ROOT.'__core__/'.$blockVendor.'/'.$blockFolder.'/php/objects/FooCore.php';
-$loaderClassArray[$blockNamespace.'\Object\Foo']						= ABS_ROOT.'project/' .$blockVendor.'/'.$blockFolder.'/php/objects/Foo.php';
+$loaderClassArray[$blockNamespace.'\Object\FooCore']					= ABS_ROOT.CORE_FOLDER.'/'.$blockVendor.'/'.$blockFolder.'/php/objects/FooCore.php';
+$loaderClassArray[$blockNamespace.'\Object\Foo']						= ABS_ROOT.PROJ_FOLDER.'/'.$blockVendor.'/'.$blockFolder.'/php/objects/Foo.php';
 
 ////////////////////////////
 //  AUTOLOAD FOLDERS
