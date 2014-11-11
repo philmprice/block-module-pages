@@ -2,7 +2,7 @@
 
 namespace PagesModule\Controller;
 
-class IndexControllerCore extends \Host\Controller\BaseController
+class PublicControllerCore extends \Host\Controller\BaseController
 {
     public function indexAction()
     {
@@ -10,6 +10,6 @@ class IndexControllerCore extends \Host\Controller\BaseController
     	$this->init();
     	
 		//	set main view
-		$this->view->setMainView('block-module-pages/index');
+		$this->view->setMainView('block-module-pages/public');
     }
 }
