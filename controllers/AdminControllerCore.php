@@ -4,11 +4,31 @@ namespace PagesModule\Controller;
 
 class AdminControllerCore extends \Host\Controller\BaseController
 {
+    public function init()
+    {
+        //  base init
+        parent::init();
+
+        //  build menu
+        $menuItemArray  = array();
+        $moduleArray    = \Model\Module::find();
+        foreach($moduleArray AS $module)
+        {
+            $menuItemArray[]    = array('label'     => $module->name,
+                                        'link'      => ROOT.$module->adminUrl,
+                                        'active'    => false);
+        }
+        $this->view->menuItemArray  = $menuItemArray;
+    }
+
 	//	index
     public function indexAction()
     {
     	//	init
     	$this->init();
+
+        //  get pages
+        $this->view->pageArray = \Model\Page::find();
     	
 		//	set main view
 		$this->view->setMainView('block-module-pages/admin-index');

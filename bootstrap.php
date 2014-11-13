@@ -1,5 +1,8 @@
 <?php
 
+////////////////////////////
+//  PATHS & NAMES
+
 $blockVendor		= "philmprice";									//	github vendor name
 $blockFolder        = "block-module-pages";							//	github project name (must start with 'block-module-')
 $blockHandle		= str_replace('block-module-','',$blockFolder);
@@ -67,6 +70,9 @@ $loaderClassArray[$blockNamespace.'\Controller\PublicController']		= ABS_ROOT.PR
 $loaderClassArray[$blockNamespace.'\Object\FooCore']					= ABS_ROOT.CORE_FOLDER.'/'.$blockVendor.'/'.$blockFolder.'/php/objects/FooCore.php';
 $loaderClassArray[$blockNamespace.'\Object\Foo']						= ABS_ROOT.PROJ_FOLDER.'/'.$blockVendor.'/'.$blockFolder.'/php/objects/Foo.php';
 
+$loaderClassArray['Model\PageCore']                                     = ABS_ROOT.CORE_FOLDER.'/'.$blockAuthor.'/'.$blockFolder.'/models/PageCore.php';
+$loaderClassArray['Model\Page']                                         = ABS_ROOT.PROJ_FOLDER.'/'.$blockAuthor.'/'.$blockFolder.'/models/Page.php';
+
 ////////////////////////////
 //  AUTOLOAD FOLDERS
 
@@ -74,6 +80,20 @@ $loaderDirArray[]   = '../../'.$blockFolder.'/models/';
 $loaderDirArray[]   = '../../'.$blockFolder.'/php/objects/';
 
 ////////////////////////////
-//  NAMESPACES
+//  AUTOLOAD NAMESPACES
 
-// $loaderNamespaceArray['BlockModule\Pages']	= "../../".$blockFolder."/php/objects/";
+// $loaderNamespaceArray['BlockModule\Pages']   = "../../".$blockFolder."/php/objects/";
+
+////////////////////////////
+//  REFRESH
+if(SERVER == 'dev' && isset($_GET['refreshAll']))
+{
+    ////////////////////////////
+    //  REGISTER MENU ITEM
+
+    $moduleData = array('uid'       => 'proto-pages',
+                        'name'      => 'Pages',
+                        'adminUrl'  => 'admin/pages/',
+                        'publicUrl' => '');
+    \Model\Module::register($moduleData);
+}
