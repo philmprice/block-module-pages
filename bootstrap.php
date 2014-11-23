@@ -10,12 +10,6 @@ $blockUpperHandle	= handle2upperHandle($blockHandle);
 $blockNamespace		= $blockUpperHandle.'Module';
 
 ////////////////////////////
-//  ENSURE EXTENSIONS
-
-\Host\Object\ExtenderCore::extendFolderFile(HOST_ROOT.'/models/', 'NounCore.php');
-\Host\Object\ExtenderCore::extendFolderFile(HOST_ROOT.'/models/', 'ModuleCore.php');
-
-////////////////////////////
 //  ROUTES
 
 //	index
